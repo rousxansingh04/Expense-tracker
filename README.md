@@ -2,7 +2,8 @@
 
 A simple Expense Tracker application built with React and Vite. It allows you to track daily expenses with real-time calculations and saves your data locally in the browser.
 
-![Expense Tracker Preview](./screenshots/app-preview.png)
+![Expense Tracker Dashboard](./screenshots/dashboard-preview.png)
+![Expense Tracker Form & List](./screenshots/app-preview.png)
 
 ## Features
 

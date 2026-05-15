@@ -1,0 +1,453 @@
+/* ============================================================
+   App.css — Expense Tracker Dashboard Styles
+   ============================================================
+   Dark modern dashboard with glassmorphism cards, smooth
+   animations, and responsive mobile-first design.
+   ============================================================ */
+
+/* ── App Shell ─────────────────────────────────────────────── */
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ────────────────────────────────────────────────── */
+.app-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+
+.app-header h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #7c5bf5 0%, #34d399 50%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+  letter-spacing: -1px;
+}
+
+.app-header p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* ── Main Content ──────────────────────────────────────────── */
+.app-main {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  flex: 1;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SUMMARY CARD
+   ══════════════════════════════════════════════════════════════ */
+.summary-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: border-color var(--duration) var(--ease),
+              box-shadow var(--duration) var(--ease);
+}
+
+.summary-card:hover {
+  border-color: rgba(124, 91, 245, 0.2);
+  box-shadow: var(--shadow-glow);
+}
+
+.summary-card h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+  font-family: var(--font-body);
+}
+
+/* ── Stats Grid ────────────────────────────────────────────── */
+.summary-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.stat {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform var(--duration) var(--ease),
+              background var(--duration) var(--ease);
+}
+
+.stat:hover {
+  transform: translateY(-2px);
+  background: var(--bg-card-hover);
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.stat-value {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* ── Conditional total colors (green ≤ ₹1000, red > ₹1000) ─ */
+.stat-value.total-safe {
+  color: var(--green);
+  text-shadow: 0 0 20px var(--green-glow);
+}
+
+.stat-value.total-danger {
+  color: var(--red);
+  text-shadow: 0 0 20px var(--red-glow);
+}
+
+/* ── Summary tip text ──────────────────────────────────────── */
+.summary-tip {
+  margin-top: 18px;
+  padding: 12px 16px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  background: var(--bg-input);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--accent);
+}
+
+.summary-tip strong {
+  color: var(--accent-hover);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   EXPENSE FORM
+   ══════════════════════════════════════════════════════════════ */
+.expense-form {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.expense-form h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 22px;
+  font-family: var(--font-body);
+}
+
+.form-group {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.3px;
+}
+
+.form-group input {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-size: 1rem;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color var(--duration) var(--ease),
+              background var(--duration) var(--ease),
+              box-shadow var(--duration) var(--ease);
+}
+
+.form-group input::placeholder {
+  color: var(--text-muted);
+}
+
+.form-group input:focus {
+  border-color: var(--border-focus);
+  background: var(--bg-input-focus);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+/* ── Add Button ────────────────────────────────────────────── */
+.btn-add {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent) 0%, #6341d4 100%);
+  border: none;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.3px;
+  transition: transform var(--duration) var(--ease),
+              box-shadow var(--duration) var(--ease),
+              filter var(--duration) var(--ease);
+}
+
+.btn-add:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(124, 91, 245, 0.4);
+  filter: brightness(1.1);
+}
+
+.btn-add:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: none;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   EXPENSE LIST
+   ══════════════════════════════════════════════════════════════ */
+.expense-list {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.expense-list h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 18px;
+  font-family: var(--font-body);
+}
+
+.expense-list ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ── Individual Expense Item ───────────────────────────────── */
+.expense-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 18px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: transform var(--duration) var(--ease),
+              background var(--duration) var(--ease),
+              border-color var(--duration) var(--ease),
+              box-shadow var(--duration) var(--ease);
+}
+
+.expense-item:hover {
+  transform: translateX(4px);
+  background: var(--bg-card-hover);
+  border-color: rgba(124, 91, 245, 0.15);
+  box-shadow: var(--shadow-sm);
+}
+
+.expense-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  min-width: 0; /* allows text truncation */
+}
+
+.expense-title {
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.expense-amount {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--accent-hover);
+  white-space: nowrap;
+}
+
+/* ── Delete Button ─────────────────────────────────────────── */
+.btn-delete {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: all var(--duration) var(--ease);
+  white-space: nowrap;
+}
+
+.btn-delete:hover {
+  color: var(--red);
+  background: var(--red-glow);
+  border-color: rgba(248, 113, 113, 0.2);
+  transform: scale(1.05);
+}
+
+.btn-delete:active {
+  transform: scale(0.95);
+}
+
+/* ── Empty State ───────────────────────────────────────────── */
+.expense-list-empty {
+  text-align: center;
+  padding: 48px 24px;
+  background: var(--bg-card);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.expense-list-empty p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+/* ── Footer ────────────────────────────────────────────────── */
+.app-footer {
+  text-align: center;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.app-footer p {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.3px;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ANIMATIONS — Fade-in on load
+   ══════════════════════════════════════════════════════════════ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.summary-card,
+.expense-form,
+.expense-list,
+.expense-list-empty {
+  animation: fadeInUp 0.5s var(--ease) both;
+}
+
+.expense-form {
+  animation-delay: 0.08s;
+}
+
+.expense-list,
+.expense-list-empty {
+  animation-delay: 0.16s;
+}
+
+/* Stagger stat cards */
+.stat:nth-child(1) { animation: fadeInUp 0.4s var(--ease) 0.1s both; }
+.stat:nth-child(2) { animation: fadeInUp 0.4s var(--ease) 0.17s both; }
+.stat:nth-child(3) { animation: fadeInUp 0.4s var(--ease) 0.24s both; }
+.stat:nth-child(4) { animation: fadeInUp 0.4s var(--ease) 0.31s both; }
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE — Mobile adjustments
+   ══════════════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .app {
+    padding: 20px 14px 36px;
+  }
+
+  .app-header h1 {
+    font-size: 1.8rem;
+  }
+
+  /* Stack stats into 2×2 grid on mobile */
+  .summary-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .stat {
+    padding: 14px 12px;
+  }
+
+  .stat-value {
+    font-size: 1.2rem;
+  }
+
+  .summary-card,
+  .expense-form,
+  .expense-list {
+    padding: 20px 16px;
+    border-radius: var(--radius-md);
+  }
+
+  /* Stack expense item vertically on small screens */
+  .expense-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 16px;
+  }
+
+  .expense-info {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .btn-delete {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 380px) {
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .stat-value {
+    font-size: 1.05rem;
+  }
+}

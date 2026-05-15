@@ -1,61 +1,52 @@
-# 💸 React Expense Tracker
+# React Expense Tracker
 
-A modern, beautiful, and fully functional Expense Tracker application built with React and Vite. It helps you keep track of your daily expenses, providing real-time calculations and persistence using local storage.
+A simple Expense Tracker application built with React and Vite. It allows you to track daily expenses with real-time calculations and saves your data locally in the browser.
 
 ![Expense Tracker Preview](./screenshots/app-preview.png)
 
-## ✨ Features
+## Features
 
-- **Add & Delete Expenses:** Easily log your expenses with a title and amount. Remove them with a single click.
-- **Real-Time Summary:** Automatically calculates your Total Spent, Expense Count, Highest Expense, and Average Expense.
-- **Dynamic Visual Cues:** The total amount turns **green** when you're under budget (≤ ₹1000) and **red** when you go over (> ₹1000).
-- **Persistent Storage:** All data is saved directly in your browser's `localStorage`, meaning your expenses remain even if you refresh or close the page.
-- **Premium UI:** Features a sleek dark mode, glassmorphism card designs, smooth hover animations, and modern typography (Inter + Outfit).
-- **Mobile Responsive:** Works and looks great on both desktop and mobile devices.
+- Add and delete expenses (title and amount)
+- Calculates total spent, total number of expenses, highest expense, and average expense
+- The total amount turns green when under budget (<= 1000) and red when over budget (> 1000)
+- Data persists across page reloads using browser localStorage
+- Responsive UI with dark mode support
 
-## 🚀 Tech Stack
+## Technologies Used
 
-- **Framework:** [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
-- **State Management:** React Hooks (`useState`, `useEffect`)
-- **Styling:** Vanilla CSS with custom properties (CSS variables), Flexbox/Grid, and keyframe animations.
-- **Typography:** Google Fonts (Inter & Outfit)
+- React 19
+- Vite
+- Vanilla CSS
+- Google Fonts (Inter, Outfit)
 
-## 🛠️ Getting Started
+## Setup and Installation
 
-To run this project locally on your machine, follow these steps:
+Make sure you have Node.js installed.
 
-### Prerequisites
-Make sure you have [Node.js](https://nodejs.org/) installed on your computer.
+1. Clone the repository:
+```bash
+git clone https://github.com/rousxansingh04/Expense-tracker.git
+cd Expense-tracker
+```
 
-### Installation
+2. Install dependencies:
+```bash
+npm install
+```
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/rousxansingh04/Expense-tracker.git
-   cd Expense-tracker
-   ```
+3. Run the development server:
+```bash
+npm run dev
+```
 
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+4. Open your browser and visit `http://localhost:5173/`.
 
-3. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
+## React Concepts Covered
 
-4. **View the app:**
-   Open your browser and navigate to the local URL provided by Vite (usually `http://localhost:5173/`).
-
-## 🧠 React Concepts Demonstrated
-This project is an excellent example of core React principles:
-- **Functional Components & JSX**
-- **Props & Lifting State Up** (Child to Parent communication)
-- **Hooks** (`useState` for reactive data, `useEffect` for syncing with local storage)
-- **List Rendering** (`.map()`) with unique `key` props
-- **Conditional Rendering** (Ternary operators and Logical AND `&&`)
-- **Derived State** (Calculating totals from the existing array rather than storing duplicate state)
-
----
-*Built with ❤️ using React.*
+This project demonstrates several core React principles:
+- Functional Components and JSX
+- State management with `useState`
+- Side effects and localStorage synchronization with `useEffect`
+- Passing props and lifting state up
+- List rendering using `.map()` and keys
+- Conditional rendering
